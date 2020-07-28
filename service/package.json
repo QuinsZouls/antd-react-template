@@ -8,6 +8,7 @@
     "@testing-library/user-event": "7.1.2",
     "antd": "4.2.0",
     "antd-dayjs-webpack-plugin": "1.0.0",
+    "apisauce": "1.1.1",
     "babel-plugin-import": "1.13.0",
     "connected-react-router": "6.8.0",
     "customize-cra": "0.9.1",
@@ -25,6 +26,7 @@
     "redux": "4.0.5",
     "redux-logger": "3.0.6",
     "redux-persist": "6.0.0",
+    "redux-persist-seamless-immutable": "2.0.0",
     "redux-thunk": "2.3.0",
     "reduxsauce": "1.1.2",
     "seamless-immutable": "7.1.4"

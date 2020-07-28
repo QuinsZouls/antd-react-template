@@ -1,22 +1,33 @@
 import { persistStore, persistReducer } from 'redux-persist';
+import {
+  seamlessImmutableReconciler,
+  seamlessImmutableTransformCreator,
+} from 'redux-persist-seamless-immutable';
+
 import { applyMiddleware, compose, createStore } from 'redux';
 import { createBrowserHistory } from 'history';
 import { routerMiddleware } from 'connected-react-router';
 import storage from 'redux-persist/lib/storage';
-import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import Logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import Reducers from './reducers';
 
+
 export const history = createBrowserHistory({
-  initialEntries: [{ state: { key: 'home' } }]
+  initialEntries: [{ state: { key: 'home' } }],
 });
+const transformerConfig = {
+  whitelistPerReducer: {
+    auth: ['token', 'user', 'role'],
+  },
+};
 
 const persistConfig = {
-  key: 'ihk',
+  key: 'antd-template',
   storage, // Defaults to localStorage
-  stateReconciler: autoMergeLevel2, // Needed to allow deeper keys,
-  whitelist: ['auth']
+  stateReconciler: seamlessImmutableReconciler,
+  transforms: [seamlessImmutableTransformCreator(transformerConfig)],
+  whitelist: ['auth'],
 };
 
 const persistedReducer = persistReducer(persistConfig, Reducers(history));
