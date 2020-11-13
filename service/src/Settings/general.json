@@ -1,7 +1,0 @@
-{
-  "version": "0.1.0",
-  "logs": true,
-  "dev": true,
-  "URL_TEST": "",
-  "URL_DEV": "http://localhost:3030"
-}

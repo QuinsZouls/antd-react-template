@@ -1,6 +1,9 @@
 # build environment
 FROM node:12 as build
 WORKDIR /app
+ARG REACT_APP_VERSION
+ARG REACT_APP_LOGS
+ARG REACT_APP_API_URL
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json /app/package.json
 COPY yarn.lock /app/yarn.lock
